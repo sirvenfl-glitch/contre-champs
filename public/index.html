@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contrechamp, le ciné-club</title>
+<meta name="description" content="Le ciné-club de Sirven et de ses amis : revoir les classiques, noter, comprendre le cinéma.">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#F4F4F1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2316181D'/%3E%3Crect x='5' y='12' width='5.5' height='8' fill='%232E46F0'/%3E%3Crect x='10.5' y='12' width='5.5' height='8' fill='%23D62839'/%3E%3Crect x='16' y='12' width='5.5' height='8' fill='%23FFC914'/%3E%3Crect x='21.5' y='12' width='5.5' height='8' fill='%230E7C6B'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="appbar" hidden><div class="in">
+  <button class="brand" data-go="discover" aria-label="Contrechamp, accueil"><i id="brandStrip"></i>Contrechamp</button>
+  <nav class="topnav" id="topnav" aria-label="Navigation principale"></nav>
+  <label class="searchbox"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="q" type="search" placeholder="Chercher un film" aria-label="Chercher un film, un réalisateur, une année"></label>
+</div></header>
+
+<main id="main" hidden></main>
+
+<nav class="bottomnav" id="bottomnav" aria-label="Navigation principale" hidden></nav>
+<dialog id="dlg"><div class="sheet" id="sheet"></div></dialog>
+
+<section id="auth" class="auth" hidden>
+  <div class="box">
+    <div class="brand"><i id="authBrand"></i>Contrechamp</div>
+    <h1 id="authTitle">Se connecter</h1>
+    <form novalidate>
+      <div id="rowName" hidden><label class="lbl" for="aName">Ton prénom</label><input class="field" id="aName" maxlength="40" autocomplete="given-name"></div>
+      <div id="rowEmail"><label class="lbl" for="aEmail">Email</label><input class="field" id="aEmail" type="email" inputmode="email" autocomplete="email" autocapitalize="none" required></div>
+      <div id="rowPass"><label class="lbl" for="aPass">Mot de passe</label><input class="field" id="aPass" type="password" autocomplete="current-password" required></div>
+      <p class="status" id="authSt" role="status"></p>
+      <button class="btn wide" id="authGo" type="submit">Entrer</button>
+    </form>
+    <p class="alt"><button type="button" class="clear" id="toSignup">Créer un compte</button><button type="button" class="clear" id="toLogin" hidden>J'ai déjà un compte</button><button type="button" class="clear" id="toRecover">Mot de passe oublié</button></p>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="/config.js"></script>
+<script src="/data.js"></script>
+<script src="/backend.js"></script>
+<script src="/app.js"></script>
+<script src="/main.js"></script>
+</body>
+</html>
