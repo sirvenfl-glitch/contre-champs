@@ -80,7 +80,7 @@ async function start(session) {
     if ($("#dlg").open && draft && byId(draft.film) && !sheetBusy()) renderSheet(byId(draft.film));
   }, () => {});
   db.collection("films").onSnapshot(snap => {
-    S.custom = snap.docs.map(d => { const v = d.data() || {}; return { id: d.id, t: String(v.t || "Sans titre"), o: "", y: Number(v.y) || 0, d: String(v.d || ""), c: CATS[v.c] ? v.c : "drame", w: String(v.w || ""), l: "", r: "", n: false, custom: true }; });
+    S.custom = snap.docs.map(d => { const v = d.data() || {}; return { id: d.id, t: String(v.t || "Sans titre"), o: String(v.o || ""), y: Number(v.y) || 0, d: String(v.d || ""), c: CATS[v.c] ? v.c : "drame", w: String(v.w || ""), l: String(v.l || ""), r: "", n: false, custom: true }; });
     softRender();
   }, () => {});
   db.collection("videos").onSnapshot(snap => {

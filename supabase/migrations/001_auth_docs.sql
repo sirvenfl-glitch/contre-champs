@@ -1,4 +1,4 @@
--- Contrechamp : schéma initial. Additif. Rollback : supabase/migrations/001_init.down.sql
+-- Contrechamp : profils, table docs et règles RLS. Additif. Rollback : 001_auth_docs.down.sql
 
 create table public.profiles (
   id uuid primary key references auth.users(id) on delete cascade,
@@ -59,6 +59,3 @@ begin new.updated_at = now(); return new; end $$;
 create trigger docs_touch before update on public.docs for each row execute function public.touch_updated_at();
 
 alter publication supabase_realtime add table public.docs;
-
-insert into public.docs (collection, id, owner, data) values
- ('passeurs','regelegorila',null,'{"name":"Regelegorila","order":1,"pitch":"Critique cinéma et séries au ton direct, pensée comme une porte d''entrée vers les films. Recommandé par Sirven.","url":"https://www.youtube.com/channel/UCouHAi3jWpC8lAqsoeM_zOA"}'::jsonb);
